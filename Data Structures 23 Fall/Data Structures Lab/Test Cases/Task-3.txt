@@ -1,0 +1,40 @@
+
+
+// Test Case 1: Word can be found in the tree
+TEST(WordSearchTest, WordCanBeFound) {
+    BinaryTree tree1;
+
+    // Create the binary tree
+    tree1.insert('A');
+    tree1.insert('B');
+    tree1.insert('C');
+    tree1.insert('D');
+    tree1.insert('E');
+    tree1.insert('F');
+
+    std::string word1 = "ABE";
+    EXPECT_TRUE(tree1.word_search(word1));
+}
+
+// Test Case 2: Word cannot be found in the tree
+TEST(WordSearchTest, WordCannotBeFound) {
+    BinaryTree tree2;
+
+    // Create the binary tree
+    tree2.insert('A');
+    tree2.insert('B');
+    tree2.insert('C');
+    tree2.insert('D');
+    tree2.insert('E');
+    tree2.insert('F');
+
+    std::string word2 = "ABCD";
+    EXPECT_FALSE(tree2.word_search(word2));
+}
+
+// Add more test cases as needed
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

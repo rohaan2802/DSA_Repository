@@ -1,0 +1,40 @@
+#include"pch.h"
+#include "Header.h"
+
+// Include the Boggle code here
+
+// Define a fixture for setting up common test data
+class BoggleTest : public ::testing::Test {
+protected:
+    // Common test data
+    char boggle[M][N] = { { 'G', 'I', 'Z' },
+                          { 'U', 'E', 'K' },
+                          { 'Q', 'S', 'E' } };
+};
+
+// Test cases
+TEST_F(BoggleTest, WordsPresentInDictionary) {
+    // Redirect cout to capture the output
+    std::stringstream buffer;
+    std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+    // Call the findWords function
+    findWords(boggle);
+
+    // Restore cout
+    std::cout.rdbuf(old);
+
+    // Check the output using assertions
+    std::string output = buffer.str();
+    EXPECT_NE(output.find("GEEKS"), std::string::npos);
+    EXPECT_NE(output.find("QUIZ"), std::string::npos);
+}
+
+
+int main(int argc, char** argv) {
+    // Initialize Google Test
+    ::testing::InitGoogleTest(&argc, argv);
+
+    // Run the tests
+    return RUN_ALL_TESTS();
+}

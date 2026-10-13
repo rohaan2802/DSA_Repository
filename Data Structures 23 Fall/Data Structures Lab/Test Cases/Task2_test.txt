@@ -1,0 +1,29 @@
+#include "pch.h"
+#include "Header.h"
+TEST(TestCaseName, LevelWiseTraversal) {
+    BST<int> bst;
+    // Insert elements into the BST
+    bst.insert(70);
+    bst.insert(16);
+    bst.insert(90);
+    bst.insert(15);
+    bst.insert(48);
+    bst.insert(80);
+    bst.insert(85);
+    bst.insert(40);
+    bst.insert(10);
+    EXPECT_EQ(bst.LeafCount(), 3);
+}
+
+TEST(TestCaseName, LevelWiseTraversal2) {
+    BST<int> bst;
+    // Insert elements into the BST
+    bst.insert(10);
+    bst.insert(5);
+    bst.insert(15);
+    bst.insert(3);
+    bst.insert(7);
+    bst.insert(12);
+    bst.insert(18);
+    EXPECT_EQ(bst.LeafCount(), 4);
+}

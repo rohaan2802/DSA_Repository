@@ -1,0 +1,17 @@
+TEST(GraphTest, ConnectedGraph) {
+    Graph graph(4);
+    graph.insertEdge(1, 2);
+    graph.insertEdge(2, 3);
+    graph.insertEdge(2, 4);
+
+    EXPECT_TRUE(graph.isConnected());
+}
+
+TEST(GraphTest, NotConnectedGraph) {
+    Graph graph(5);
+    graph.insertEdge(1, 2);
+    graph.insertEdge(2, 3);
+    graph.insertEdge(4, 5);
+
+    EXPECT_FALSE(graph.isConnected());
+}

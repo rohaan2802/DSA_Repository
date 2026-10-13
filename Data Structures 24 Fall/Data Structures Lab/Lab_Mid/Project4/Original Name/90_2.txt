@@ -1,0 +1,3 @@
+Row Data: Ahmed,21i-0067,DBMS,90,Passed
+Left Child Key: NULL
+Right Child Key: 90

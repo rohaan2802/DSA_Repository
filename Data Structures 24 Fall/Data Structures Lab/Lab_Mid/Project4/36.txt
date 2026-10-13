@@ -1,0 +1,3 @@
+Parent: 30
+Left Child: nullptr
+Right Child: nullptr

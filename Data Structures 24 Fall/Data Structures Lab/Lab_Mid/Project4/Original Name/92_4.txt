@@ -1,0 +1,3 @@
+Row Data: Sara,21i-0070,DBMS,92,Passed
+Left Child Key: 78
+Right Child Key: 90

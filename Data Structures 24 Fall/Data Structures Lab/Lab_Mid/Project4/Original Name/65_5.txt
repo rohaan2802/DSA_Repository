@@ -1,0 +1,3 @@
+Row Data: Zara,21i-0071,OS,65,Passed
+Left Child Key: 78
+Right Child Key: 90

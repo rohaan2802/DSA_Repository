@@ -1,0 +1,3 @@
+Parent: 43
+Left Child: 50
+Right Child: 76

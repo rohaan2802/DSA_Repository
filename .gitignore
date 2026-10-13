@@ -1,0 +1,46 @@
+# Visual Studio / MSBuild output
+.vs/
+[Xx]64/
+[Xx]86/
+[Dd]ebug/
+[Rr]elease/
+ipch/
+bin/
+obj/
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.recipe
+*.log
+*.exe
+*.sdf
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.aps
+*.ipch
+*.iobj
+*.ipdb
+*.pch
+*.ncb
+*.cache
+*.db-wal
+*.db-shm
+
+# NuGet packages (restored from packages.config)
+packages/
+
+# Other tools
+__pycache__/
+*.pyc
+.idea/
+cmake-build-*/
+node_modules/
+
+# Larger than 100 MB - attached to the v1.0 release instead
+Data Structures 23 Fall/Data Structures Lab/Lab_#_04/Lab_#_04.rar
+Data Structures 24 Fall/Data Structures Course/DSA NOTES/CS CS2001-Data Structures-20240922T100923Z-001.zip

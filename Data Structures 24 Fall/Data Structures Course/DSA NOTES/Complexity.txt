@@ -1,0 +1,117 @@
+TIME COMPLEXITY - LOOP EXAMPLES
+
+1. Loop up to 2^n
+
+for (int i = 0; i < pow(2, n); ++i) {
+    // Some constant time operation
+}
+
+- Runs from i = 0 to 2^n - 1 -> 2^n iterations, each O(1).
+- Total: O(2^n) - exponential.
+- Each +1 in n doubles the work: n=1 -> 2, n=2 -> 4, n=3 -> 8 iterations.
+
+2. Generating all subsets (2^n of them)
+
+#include <iostream>
+
+void generateSubsets(int nums[], int n) {
+    int totalSubsets = 1 << n;  // Equivalent to 2^n
+
+    // Iterate through all possible combinations (0 to 2^n - 1)
+    for (int i = 0; i < totalSubsets; ++i) {
+        std::cout << "{ ";
+        
+        // For each element, decide if it is in the subset
+        for (int j = 0; j < n; ++j) {
+            // Check if the j-th bit of i is set (1), if so include nums[j]
+            if (i & (1 << j)) {
+                std::cout << nums[j] << " ";
+            }
+        }
+
+        std::cout << "}" << std::endl;
+    }
+}
+
+int main() {
+    int nums[] = {1, 2, 3};  // A set of 3 elements
+    int n = sizeof(nums) / sizeof(nums[0]);  // Number of elements in the set
+    
+    generateSubsets(nums, n);
+    
+    return 0;
+}
+
+- 1 << n = 2^n (shift 1 left by n bits), no library needed.
+- Outer loop 0 .. 2^n - 1: each i is one subset in binary (n = 3 -> 000 to 111).
+- Inner loop: if bit j of i is 1, nums[j] is in the subset.
+- Subsets are printed directly (no vector).
+- Complexity: O(n * 2^n).
+
+OUTPUT:
+{ }
+{ 1 }
+{ 2 }
+{ 1 2 }
+{ 3 }
+{ 1 3 }
+{ 2 3 }
+{ 1 2 3 }
+
+3. Inner loop depends on i
+
+for (i = 1; i <= n; i++) {
+    for (j = 1; j <= i; j++) {
+        // Some code
+    }
+}
+
+- Outer runs n times, inner runs i times.
+- Total = 1 + 2 + ... + n = n(n+1)/2 -> O(n^2).
+
+4. Inner loop up to 2^i
+
+for (i = 1; i <= n; i++) {
+    for (j = 1; j <= 2^i; j++) {
+        // Some code
+    }
+}
+
+- Total = 2 + 4 + ... + 2^n = 2^(n+1) - 2 -> O(2^n).
+
+5. Both loops doubling
+
+for(int i = 1; i <= n; i = i * 2) {
+    for(int j = 1; j < i; j = j * 2) {
+        cout << "*";
+    }
+}
+
+- Outer runs log n times; inner runs about log i times.
+- Sum of log i over the outer values -> O((log n)^2).
+
+6. Same as 4 with notes
+
+for (i = 1; i <= n; i++) // O(n)
+ {
+    for (j = 1; j <= 2^i; j++)// O(2^n)
+ {
+        // Some code
+    }
+}
+
+- Total: O(2^n).
+
+7. Inner loop up to i^2
+
+for (i = 1; i <= n; i++) // O(n)
+{
+    for (j = 1; j <= i^2; j++)// i goes up to n, so j goes up to n^2 -> O(n) * O(n^2) = O(n^3)
+ {
+        // Some code
+    }
+}
+
+- Total: O(n^3).
+
+(Note: in real C++, ^ is XOR - write 2^i as (1 << i) or pow(2, i), and i^2 as i * i.)

@@ -1,0 +1,26 @@
+WHY ARRAY INDEXES START AT 0
+
+1. Pointer arithmetic
+- In C/C++ the array name acts as the address of the first element.
+- Address of a[i] = Base Address + (i * Size of Element)
+- With 0-based indexing, a[0] is exactly the base address (no offset).
+- With 1-based indexing it would need an extra subtraction:
+  Address of a[i] = Base Address + ((i - 1) * Size of Element)
+- So 0-based keeps address calculation simple.
+
+2. History
+- Assembly and C were designed around low-level memory access, where memory is addressed from a base address.
+- Later languages kept zero-based indexing for consistency.
+
+3. Efficiency
+- No extra adjustment or offset when accessing elements -> simpler, faster code.
+
+WHY ARRAYS ARE NOT PASSED BY VALUE
+
+Passing by value would copy the whole array. Instead a pointer to the first element is passed.
+
+- Efficiency: arrays can be large; copying wastes time and memory. Passing the address is cheap.
+- Memory limits: copying big arrays can use too much memory (especially on small systems).
+- Consistency: large data is generally passed by reference/pointer in C and C++, arrays follow the same idea.
+
+Note: C++ can pass a whole array by value using std::array (or wrapping it in a struct), but it is rarely done because of the copying cost.

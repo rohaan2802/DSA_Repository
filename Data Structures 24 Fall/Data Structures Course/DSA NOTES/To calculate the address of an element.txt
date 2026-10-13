@@ -1,0 +1,71 @@
+ADDRESS OF AN ELEMENT IN 2D / 3D ARRAYS (ROW-MAJOR)
+
+C++ stores multi-dimensional arrays in row-major order, so the address can be found with pointer arithmetic from the base address (address of the first element).
+
+1. 2D array - element (i, j)
+
+address = base address + (i * number of columns + j) * size of element
+
+#include <iostream>
+
+int main() {
+    const int rows = 3;
+    const int cols = 4;
+    int array[rows][cols] = { 
+        {1, 2, 3, 4}, 
+        {5, 6, 7, 8}, 
+        {9, 10, 11, 12} 
+    };
+
+    int i = 1; // row index
+    int j = 2; // column index
+    int* base = &array[0][0]; // base address
+
+    // Calculate address (pointer arithmetic already multiplies by sizeof(int))
+    int* address = base + (i * cols + j);
+    std::cout << "Address of array[" << i << "][" << j << "] is: " << address << std::endl;
+    std::cout << "Value at array[" << i << "][" << j << "] is: " << *address << std::endl;
+
+    return 0;
+}
+
+2. 3D array - element (i, j, k)
+
+address = base address + (i * rows * columns + j * columns + k) * size of element
+
+#include <iostream>
+
+int main() {
+    const int depth = 2;
+    const int rows = 3;
+    const int cols = 4;
+    int array[depth][rows][cols] = {
+        {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12}
+        },
+        {
+            {13, 14, 15, 16},
+            {17, 18, 19, 20},
+            {21, 22, 23, 24}
+        }
+    };
+
+    int i = 1; // depth index
+    int j = 2; // row index
+    int k = 3; // column index
+    int* base = &array[0][0][0]; // base address
+
+    // Calculate address
+    int* address = base + (i * rows * cols + j * cols + k);
+    std::cout << "Address of array[" << i << "][" << j << "][" << k << "] is: " << address << std::endl;
+    std::cout << "Value at array[" << i << "][" << j << "][" << k << "] is: " << *address << std::endl;
+
+    return 0;
+}
+
+Notes
+- Base address = address of the first element.
+- Size of element = sizeof(int) for an int array; pointer arithmetic on int* multiplies by it automatically.
+- Example: array[1][2] in a 3x4 int array -> offset (1*4 + 2) = 6 elements = 24 bytes from the base.

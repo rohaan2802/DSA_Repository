@@ -1,0 +1,36 @@
+BRUTE FORCE VS HEURISTIC
+
+BRUTE FORCE (exhaustive search / generate and test)
+- Tries every possible solution systematically until the correct one is found.
+- No shortcuts or optimisation to reduce the search space.
+- Guaranteed to find a solution if one exists.
+- Cost grows very fast with input size (often exponential).
+- Useful for small problems, when no better algorithm is known, or as a starting point for a better algorithm.
+- Security example: brute-force attack = trying every password combination.
+
+===============================================
+
+HEURISTIC
+- Uses "rules of thumb" / educated guesses to find a good-enough solution quickly, not necessarily the best one.
+- Used when the optimal solution is too expensive or impractical to compute.
+- Trade-off: gives up some accuracy for speed.
+- Based on practical knowledge / experience about the problem.
+
+Examples
+- Pathfinding: A* search uses a heuristic estimate of the cost from a node to the goal.
+- Optimisation problems: near-optimal solutions in reasonable time.
+- AI: guiding search and decision making.
+
+Advantages
+- Fast compared with algorithms that guarantee the optimum.
+- Practical when an exact solution is infeasible.
+- Solutions are usually good enough in practice.
+
+Disadvantages
+- Not always optimal.
+- Can be biased by incomplete information.
+- Not always complete - may fail to find any solution.
+
+Summary
+- Brute force: always correct, usually slow.
+- Heuristic: fast and practical, but no guarantee of the best (or any) answer.

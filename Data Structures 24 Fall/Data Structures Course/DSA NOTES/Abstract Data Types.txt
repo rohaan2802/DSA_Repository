@@ -1,0 +1,31 @@
+ABSTRACT DATA TYPES (ADT) VS USER-DEFINED DATA TYPES (UDT)
+
+1. Abstract Data Type (ADT)
+- A theoretical model of a data type defined only by its behaviour: the operations allowed on it and the rules of those operations.
+- Implementation is hidden - focus is on WHAT it does, not HOW.
+- Behaviour: e.g. a stack is defined by push(), pop(), peek().
+- Encapsulation: user doesn't care about internal structure or memory management.
+- Examples: Stack, Queue, List, Set, Map (also Tree, Graph).
+- Language independent; one ADT can have many implementations (stack using an array or a linked list).
+- Purpose: design and abstraction - reason about data without worrying about implementation details.
+
+2. User-Defined Data Type (UDT)
+- A type the programmer defines in a specific language, built from primitive types (int, float, ...).
+- Groups related data together into a new type.
+- Programmer defines the internal members and methods directly.
+- C++ examples: struct, class, union, enum (e.g. struct Person { name, age, address }).
+- Language specific - follows that language's syntax and rules.
+- Purpose: extend the language with types that fit the application.
+
+Differences
+| Aspect              | ADT                                         | UDT                                              |
+| Concept             | Model of operations, no implementation      | Custom type built with language features         |
+| Focus               | Behaviour (what it should do)               | Structure / implementation (how it is built)     |
+| Abstraction level   | High-level                                  | Low-level                                        |
+| Examples            | Stack, Queue, Set, List, Tree, Graph        | struct, class, enum, union                       |
+| Language dependence | Independent                                 | Language specific (C++ struct, Python class)     |
+| Implementation      | Hidden, many possible implementations       | Written explicitly by the programmer             |
+
+Key point
+- ADT = conceptual, describes behaviour, hides implementation.
+- UDT = practical, the actual type written in a language (often used to implement an ADT).

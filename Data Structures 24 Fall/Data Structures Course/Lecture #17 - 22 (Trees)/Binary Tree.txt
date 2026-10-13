@@ -1,0 +1,583 @@
+=======================================================    // INSERTION METHOD
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+
+// Define a Queue Node structure for holding Node* pointers for the tree
+class QueueNode {
+public:
+    Node* data;
+    QueueNode* next;
+
+    QueueNode(Node* val) : data(val), next(nullptr) {}
+};
+
+class Queue {
+private:
+    QueueNode* front;
+    QueueNode* rear;
+
+public:
+    Queue() : front(nullptr), rear(nullptr) {}
+
+    bool isEmpty() {
+        return front == nullptr;
+    }
+
+    void enqueue(Node* node) {
+        QueueNode* new_node = new QueueNode(node);
+        if (rear == nullptr) {
+            front = rear = new_node;
+        } else {
+            rear->next = new_node;
+            rear = new_node;
+        }
+    }
+
+    Node* dequeue() {
+        if (isEmpty()) return nullptr;
+        QueueNode* temp = front;
+        front = front->next;
+        if (front == nullptr) rear = nullptr;
+
+        Node* nodeData = temp->data;
+        delete temp;
+        return nodeData;
+    }
+};
+
+class Tree {
+private:
+    Node* root;
+
+public:
+    Tree() : root(nullptr) {}
+
+    void insert(int data) {
+        Node* newNode = new Node(data);
+        if (root == nullptr) {
+            root = newNode;
+            return;
+        }
+
+        // Use a queue to perform level-order traversal
+        Queue q;
+        q.enqueue(root);
+
+        while (!q.isEmpty()) {
+            Node* current = q.dequeue();
+
+            // Check the left child
+            if (current->left == nullptr) {
+                current->left = newNode;
+                return;
+            } else {
+                q.enqueue(current->left);
+            }
+
+            // Check the right child
+            if (current->right == nullptr) {
+                current->right = newNode;
+                return;
+            } else {
+                q.enqueue(current->right);
+            }
+        }
+    }
+
+    // Display the tree nodes in level order for verification
+    void levelOrderTraversal() {
+        if (root == nullptr) {
+            cout << "The tree is empty.\n";
+            return;
+        }
+
+        Queue q;
+        q.enqueue(root);
+
+        while (!q.isEmpty()) {
+            Node* current = q.dequeue();
+            cout << current->data << " ";
+
+            if (current->left != nullptr) {
+                q.enqueue(current->left);
+            }
+            if (current->right != nullptr) {
+                q.enqueue(current->right);
+            }
+        }
+        cout << "\n";
+    }
+};
+
+int main() {
+    Tree tree;
+    tree.insert(1);
+    tree.insert(2);
+    tree.insert(3);
+    tree.insert(4);
+    tree.insert(5);
+    tree.insert(6);
+    tree.insert(7);
+
+    cout << "Level Order Traversal of the Tree:\n";
+    tree.levelOrderTraversal();
+
+    return 0;
+}
+
+
+
+
+
+=======================================================     	  // INSERTION METHOD
+// C++ program to insert element (in level order)
+// in Binary Tree
+#include <iostream>
+#include <queue>
+using namespace std;
+
+class Node {
+public: 
+      int data;
+    Node* left;
+    Node* right;
+    Node(int x) {
+        data = x;
+          left = right = nullptr;
+    }
+};
+
+// Function to insert element in binary tree
+Node* InsertNode(Node* root, int data) {
+  
+    // If the tree is empty, assign new
+      // node address to root
+    if (root == nullptr) {
+        root = new Node(data);
+        return root;
+    }
+
+    // Else, do level order traversal until we find an empty
+    // place, i.e. either left child or right child of some
+    // node is pointing to NULL.
+    queue<Node*> q;
+    q.push(root);
+
+    while (!q.empty()) {
+      
+          // Fron a front element in queue
+        Node* curr = q.front();
+        q.pop();
+        
+          // First check left if left is null 
+          // insert node in left otherwise chaeck for right
+        if (curr->left != nullptr)
+            q.push(curr->left);
+        else {
+            curr->left = new Node(data);
+            return root;
+        }
+    
+        if (curr->right != nullptr)
+            q.push(curr->right);
+        else {
+            curr->right = new Node(data);
+            return root;
+        }
+    }
+}
+
+// Inorder traversal of a binary tree 
+void inorder(Node* curr) {
+    if (curr == nullptr)
+        return;
+    inorder(curr->left);
+    cout << curr->data << ' ';
+    inorder(curr->right);
+}
+
+int main() {
+  
+      // Constructing the binary tree
+      //          10
+    //        /    \ 
+    //       11     9
+    //      /      / \
+    //     7      15   8
+  
+    Node* root = new Node(10);
+    root->left = new Node(11);
+      root->right = new Node(9);
+    root->left->left = new Node(7);
+    root->right->left = new Node(15);
+    root->right->right = new Node(8);
+  
+    int key = 12;
+    root = InsertNode(root, key);
+  
+      // After insertion 12 in binary tree
+      //          10
+    //        /    \ 
+    //       11     9
+    //      /  \   / \
+    //     7   12 15  8
+
+    inorder(root);
+
+    return 0;
+}
+
+
+===========================================================
+
+// Recursive C++ program for level
+// order traversal of Binary Tree
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node *left, *right;
+    Node(int value) {
+        data = value;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+
+// Function prototypes
+void printCurrentLevel(Node* root, int level);
+int height(Node* node);
+
+// Function to print level order
+// traversal of a tree
+void printLevelOrder(Node* root) {
+    int h = height(root);
+    for (int i = 1; i <= h; i++)
+        printCurrentLevel(root, i);
+}
+
+// Print nodes at a current level
+void printCurrentLevel(Node* root, int level) {
+    if (root == nullptr)
+        return;
+    if (level == 1)
+        cout << root->data << " ";
+    else if (level > 1) {
+        printCurrentLevel(root->left, level - 1);
+        printCurrentLevel(root->right, level - 1);
+    }
+}
+
+// Compute the "height" of a tree
+int height(Node* node) {
+    if (node == nullptr)
+        return 0;
+    else {
+        int lheight = height(node->left);
+        int rheight = height(node->right);
+        return (lheight > rheight) ? (lheight + 1) :
+                                     (rheight + 1);
+    }
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    printLevelOrder(root);
+    return 0;
+}
+
+
+===================================================================
+
+// C++ program to delete a specific element
+// in a binary tree
+#include<iostream>
+#include<queue>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left, * right;
+    Node(int x) {
+        data = x;
+        left = right = nullptr;
+    }
+};
+
+void deletDeepest(Node* root, Node* dNode) {
+    queue<Node*> q;
+    q.push(root);
+
+    Node* curr;
+    while (!q.empty()) {
+        curr = q.front();
+        q.pop();
+
+        // If current node is the deepest
+          // node, delete it
+        if (curr == dNode) {
+            curr = nullptr;
+            delete (dNode);
+            return;
+        }
+
+        // Check the right child first
+        if (curr->right) {
+
+            // If right child is the deepest
+              // node, delete it
+            if (curr->right == dNode) {
+                curr->right = nullptr;
+                delete (dNode);
+                return;
+            }
+            else
+            {
+                q.push(curr->right);
+            }
+        }
+
+        // Check the left child
+        if (curr->left) {
+
+            // If left child is the deepest 
+              // node, delete it
+            if (curr->left == dNode) {
+                curr->left = nullptr;
+                delete (dNode);
+                return;
+            }
+            else
+            {
+                q.push(curr->left);
+            }
+        }
+    }
+}
+
+Node* deletion(Node* root, int key) {
+
+    // If the tree is empty, return null
+    if (root == nullptr)
+        return nullptr;
+
+    if (root->left == nullptr && root->right == nullptr) {
+
+        // If the root node is the key, delete it
+        if (root->data == key)
+            return nullptr;
+        else
+            return root;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+
+    Node* curr=nullptr;
+    Node* keyNode = nullptr;
+
+   
+    while (!q.empty()) {
+        curr = q.front();
+        q.pop();
+        if (curr->data == key)
+            keyNode = curr;
+
+        if (curr->left)
+            q.push(curr->left);
+
+        if (curr->right)
+            q.push(curr->right);
+    }
+
+    
+    if (keyNode != nullptr ) {
+
+        
+//        int x = curr->data;
+        keyNode->data = curr->data;
+        deletDeepest(root, curr);
+       // curr = nullptr;
+      //  delete curr;
+    }
+    return root;
+}
+
+void inorder(Node* curr) 
+{
+    if (!curr)
+        return;
+    inorder(curr->left);
+    cout << curr->data << " ";
+    inorder(curr->right);
+}
+
+int main() {
+
+    // Construct the binary tree
+    //       10         
+      //      /  \       
+      //    11    9
+      //   / \   / \     
+      //  7  12 15  8     
+
+    Node* root = new Node(10);
+    root->left = new Node(11);
+    root->right = new Node(9);
+    root->left->left = new Node(7);
+    root->left->right = new Node(12);
+    root->right->left = new Node(15);
+    root->right->right = new Node(8);
+
+    int key = 11;
+    root = deletion(root, key);
+
+    inorder(root);
+    return 0;
+}
+
+
+
+
+
+
+
+
+https://youtu.be/lmvo2gpuXOA?si=tJ9WpJMaplu63MEF
+
+
+
+===========================================================================
+
+
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left, * right;
+    Node(int x) {
+        data = x;
+        left = right = nullptr;
+    }
+};
+
+Node* deletion(Node* root, int key) {
+
+    // If the tree is empty, return null
+    if (root == nullptr)
+        return nullptr;
+
+    // If the tree has only one node
+    if (root->left == nullptr && root->right == nullptr) {
+        if (root->data == key) {
+            delete root;
+            return nullptr;
+        }
+        else {
+            return root;
+        }
+    }
+
+    queue<Node*> q;
+    q.push(root);
+
+    Node* curr = nullptr;  // The deepest node
+    Node* keyNode = nullptr; // The node to delete
+    Node* parent = nullptr; // Parent of curr (to delete it)
+
+    // Level order traversal to find the deepest node and the key node
+    while (!q.empty()) {
+        curr = q.front();
+        q.pop();
+
+        // If current node is the key node
+        if (curr->data == key)
+            keyNode = curr;
+
+        // Track the parent of the deepest node
+        if (curr->left) {
+            parent = curr;
+            q.push(curr->left);
+        }
+        if (curr->right) {
+            parent = curr;
+            q.push(curr->right);
+        }
+    }
+
+    // If key node is found, replace its data with the deepest node's data
+    if (keyNode != nullptr) {
+        keyNode->data = curr->data;  // Copy deepest node's data to key node
+
+        // Delete the deepest node
+        if (parent->right == curr) {
+            parent->right = nullptr;
+        }
+        else if (parent->left == curr) {
+            parent->left = nullptr;
+        }
+        delete curr;
+    }
+
+    return root;
+}
+
+// Inorder traversal of a binary tree
+void inorder(Node* curr) {
+    if (!curr)
+        return;
+    inorder(curr->left);
+    cout << curr->data << " ";
+    inorder(curr->right);
+}
+
+int main() {
+
+    // Construct the binary tree
+    //       10         
+    //      /  \       
+    //    11    9
+    //   / \   / \     
+    //  7  12 15  8     
+
+    Node* root = new Node(10);
+    root->left = new Node(11);
+    root->right = new Node(9);
+    root->left->left = new Node(7);
+    root->left->right = new Node(12);
+    root->right->left = new Node(15);
+    root->right->right = new Node(8);
+
+    int key = 11;
+    root = deletion(root, key);
+
+    cout << "Inorder traversal after deletion:\n";
+    inorder(root);
+    cout << endl;
+
+    return 0;
+}
+

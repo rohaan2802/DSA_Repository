@@ -1,0 +1,195 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+Node* insert(Node* root, int key) {
+    // Base case: If the tree is empty, return a new node
+    if (root == nullptr) {
+        return new Node(key);
+    }
+
+    // Otherwise, recur down the tree
+    if (key < root->data) {
+        root->left = insert(root->left, key);
+    } else if (key > root->data) {
+        root->right = insert(root->right, key);
+    }
+
+    // Return the (unchanged) root pointer
+    return root;
+}
+
+
+
+=========================================
+
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+Node* insertIterative(Node* root, int key) {
+    // Create the new node
+    Node* newNode = new Node(key);
+
+    // If the tree is empty, set the new node as root
+    if (root == nullptr) {
+        return newNode;
+    }
+
+    Node* current = root;
+    Node* parent = nullptr;
+
+    // Traverse the tree to find the correct position
+    while (current != nullptr) {
+        parent = current;
+
+        if (key < current->data) {
+            current = current->left;
+        } else if (key > current->data) {
+            current = current->right;
+        } else {
+            // If the key is already present, return root (no duplicates allowed in BST)
+            return root;
+        }
+    }
+
+    // Insert the new node as a left or right child
+    if (key < parent->data) {
+        parent->left = newNode;
+    } else {
+        parent->right = newNode;
+    }
+
+    return root;
+}
+
+
+
+===============================================================
+
+
+Node* iterativeSearch(Node* root, int key) {
+    Node* current = root;
+    while (current != nullptr && current->data != key) {
+        if (key < current->data) {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
+    return current;
+}
+
+
+
+===========================================================
+
+
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int value) {
+        data = value;
+        left = right = nullptr;
+    }
+};
+
+class BST {
+public:
+    Node* root;
+
+    BST() {
+        root = nullptr;
+    }
+
+    // Recursive search function
+    Node* search(Node* node, int key) {
+        // Base case: root is null or key is present at root
+        if (node == nullptr || node->data == key) {
+            return node;
+        }
+
+        // Key is greater than root's data
+        if (key > node->data) {
+            return search(node->right, key);
+        }
+
+        // Key is smaller than root's data
+        return search(node->left, key);
+    }
+
+    // Helper function to start searching from the root
+    Node* search(int key) {
+        return search(root, key);
+    }
+
+    // Function to insert nodes (for setting up the tree)
+    Node* insert(Node* node, int key) {
+        if (node == nullptr) {
+            return new Node(key);
+        }
+
+        if (key < node->data) {
+            node->left = insert(node->left, key);
+        } else if (key > node->data) {
+            node->right = insert(node->right, key);
+        }
+
+        return node;
+    }
+
+    void insert(int key) {
+        root = insert(root, key);
+    }
+};
+
+int main() {
+    BST tree;
+    tree.insert(8);
+    tree.insert(3);
+    tree.insert(10);
+    tree.insert(1);
+    tree.insert(6);
+    tree.insert(14);
+    tree.insert(4);
+    tree.insert(7);
+    tree.insert(13);
+
+    int key = 7;
+    Node* result = tree.search(key);
+    if (result != nullptr) {
+        cout << "Node with value " << key << " found.\n";
+    } else {
+        cout << "Node with value " << key << " not found.\n";
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+https://youtu.be/MxKBRgyO-94?si=bDbjJhcYtN36KIZg

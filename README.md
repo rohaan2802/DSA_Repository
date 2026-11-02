@@ -18,18 +18,35 @@ My Data Structures course work from two semesters – lecture slides, assignment
 
 ## Live Links
 
-| Link | Description |
+| What | Link |
 |---|---|
-| [Website](https://rohaan2802.github.io/DSA_Repository/) | Project website with search, filters and a screenshot viewer |
-| [Repository](https://github.com/rohaan2802/DSA_Repository) | Browse every file on GitHub |
-| [Download whole repository (ZIP)](https://github.com/rohaan2802/DSA_Repository/archive/refs/heads/main.zip) | Everything except the two large archives below |
-| [Release v1.0](https://github.com/rohaan2802/DSA_Repository/releases/tag/v1.0) | The two archives larger than 100 MB |
-| [Fall 2024 lectures](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course) | Lectures 1–27, notes and final project |
-| [Fall 2024 labs](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Lab) | Labs 1–15 and the lab mid |
-| [Fall 2023 lectures](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course) | Lectures, assignments, quizzes and textbooks |
-| [Fall 2023 labs](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Lab) | Labs 1–15, sessional and test cases |
-| [GitLite final project (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/blob/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/FINAL_PROJECT/GITLite-%20Data%20Structure.pdf) | Project brief |
-| [DSA notes](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/DSA%20NOTES) | Handwritten notes and short write-ups |
+| Repository | [rohaan2802/DSA_Repository](https://github.com/rohaan2802/DSA_Repository) |
+| Website (GitHub Pages) | [rohaan2802.github.io/DSA_Repository](https://rohaan2802.github.io/DSA_Repository/) |
+| Releases page | [Releases](https://github.com/rohaan2802/DSA_Repository/releases) |
+| Release v1.0 | [large archives](https://github.com/rohaan2802/DSA_Repository/releases/tag/v1.0) |
+| Download: CS2001 Data Structures notes and past papers (~103 MB) | [CS2001-Data-Structures-Notes-and-Past-Papers.zip](https://github.com/rohaan2802/DSA_Repository/releases/download/v1.0/CS2001-Data-Structures-Notes-and-Past-Papers.zip) |
+| Download: DS Lab 04 2023 complete (~141 MB) | [DS-Lab-04-2023-Complete.rar](https://github.com/rohaan2802/DSA_Repository/releases/download/v1.0/DS-Lab-04-2023-Complete.rar) |
+| Download whole repository (ZIP) | [main.zip](https://github.com/rohaan2802/DSA_Repository/archive/refs/heads/main.zip) |
+| Course folder | [Data Structures 24 Fall / Course](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course) |
+| Lab folder | [Data Structures 24 Fall / Lab](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Lab) |
+| Course folder | [Data Structures 23 Fall / Course](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course) |
+| Lab folder | [Data Structures 23 Fall / Lab](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Lab) |
+| Course folder | [Assignments (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/Assignments) |
+| Course folder | [Assignments (Fall 2023)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course/Assignments) |
+| Course folder | [Quizes (Fall 2023)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course/Quizes) |
+| Course folder | [Mid Exam (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/Mid%20Exam) |
+| Course folder | [Past Paper (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/Past%20Paper) |
+| Lab folder | [Lab_Mid (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Lab/Lab_Mid) |
+| Lab folder | [Test Cases (Fall 2023)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Lab/Test%20Cases) |
+| Final project folder | [FINAL_PROJECT – GitLite (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/FINAL_PROJECT) |
+| Final project | [GITLite- Data Structure.pdf](https://github.com/rohaan2802/DSA_Repository/blob/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/FINAL_PROJECT/GITLite-%20Data%20Structure.pdf) |
+| Final project folder | [Final Project (Fall 2023)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course/Final%20Project) |
+| Study notes | [DSA NOTES](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/DSA%20NOTES) |
+| Study notes | [DSA Notes.pdf](https://github.com/rohaan2802/DSA_Repository/blob/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/DSA%20NOTES/DSA%20Notes.pdf) |
+| Study notes | [Complexity Rules and Exercises.pdf](https://github.com/rohaan2802/DSA_Repository/blob/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/DSA%20NOTES/Complexity%20Rules%20and%20Exercises.pdf) |
+| Other useful path | [Text Books (Fall 2023)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2023%20Fall/Data%20Structures%20Course/Text%20Books) |
+| Other useful path | [Book (Fall 2024)](https://github.com/rohaan2802/DSA_Repository/tree/main/Data%20Structures%2024%20Fall/Data%20Structures%20Course/Book) |
+| Other useful path | [LICENSE](https://github.com/rohaan2802/DSA_Repository/blob/main/LICENSE) |
 
 ---
 
